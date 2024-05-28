@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package project.studentdb;
 
 import com.studentdb.jdbcspring.messages.MessageSerialization;
@@ -86,6 +82,7 @@ public class MainUI extends javax.swing.JFrame {
         clearBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(null);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -139,6 +136,17 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
 
+        NameField.setMaximumSize(null);
+        NameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NameFieldActionPerformed(evt);
+            }
+        });
+
+        FatherField.setMaximumSize(null);
+
+        MotherField.setMaximumSize(null);
+
         jLabel1.setText("Name");
 
         jLabel2.setText("Age");
@@ -154,6 +162,7 @@ public class MainUI extends javax.swing.JFrame {
         jLabel7.setText("Class");
 
         SexField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        SexField.setMaximumSize(null);
 
         ClassField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1A", "1B", "2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "6A", "6B", "7A", "7B", "8A", "8B", "9A", "9B", "10A", "10B" }));
 
@@ -193,7 +202,7 @@ public class MainUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,26 +213,34 @@ public class MainUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(AgeField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(NameField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(SexField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ClassField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(AgeField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ClassField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(SexField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(NameField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(AddressField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(MotherField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(FatherField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 43, Short.MAX_VALUE))
+                                        .addGap(45, 45, 45)
+                                        .addComponent(AddressField))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(MotherField, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel4)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(FatherField, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(delBtn)
                                 .addGap(18, 18, 18)
@@ -239,6 +256,11 @@ public class MainUI extends javax.swing.JFrame {
                         .addGap(16, 16, 16)))
                 .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {FatherField, MotherField});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {NameField, SexField});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -248,23 +270,25 @@ public class MainUI extends javax.swing.JFrame {
                     .addComponent(FatherField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(MotherField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)
                         .addComponent(jLabel5))
                     .addComponent(SexField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AgeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(ClassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AgeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(ClassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(AddressField))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -283,8 +307,9 @@ public class MainUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        student stu = new student();
+        com.studentdb.jdbcspring.entity.student stu = new com.studentdb.jdbcspring.entity.student();
         String chkName = NameField.getText();
+        
         Object[] NameList = getColumnDataToArray(1);
         boolean test = Arrays.asList(NameList).contains(chkName);
 
@@ -294,39 +319,16 @@ public class MainUI extends javax.swing.JFrame {
         } else {
             stu.setName(NameField.getText());
         }
-
-//              String age = AgeField.getText();
-//            String sex = SexField.getText();
-//            String cls = ClassField.getText();
-//            String fname = FatherField.getText();
-//            String mname = MotherField.getText();
-//            String address = AddressField.getText();
-        // newdb.setStudentId(stu.getregdNo());
-        // stu.setStuName(NameField.getText());
-//            stu.setAge(Integer.parseInt(AgeField.getText()));
+        
         stu.setSex((String) SexField.getSelectedItem());
-        stu.setStudentClass((String) ClassField.getSelectedItem());
+        stu.setStdClass((String) ClassField.getSelectedItem());
         stu.setFname(FatherField.getText());
         stu.setMname(MotherField.getText());
         stu.setAddress(AddressField.getText());
 
-//            stu.addStudent(newdb.getName(),newdb.getAge(),newdb.getSex(),newdb.getStudentClass(),newdb.getFname(),newdb.getMname(),newdb.getAddress());
-        /////         stu.put(newdb.getStudentId(),newdb.toString());
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-//          model.addRow(new Object[]{stu.getStuStudentId(),stu.getStuName(),stu.getStuAge(),stu.getStuSex(),stu.getStuStudentClass(),stu.getStuFname(),stu.getStuMname(),stu.getStuAddress()}); // Add the new row to the table model
-//            model.addRow(new Object []{stu.addstu.get(1)})
-//stu.IncreaseRgo();
         clearField();
-//        try {
-////            controller = 
-////            controller.sendMessage(stu);
-//        } catch (IOException ex) {
-//            Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
-//            StringWriter sw = new StringWriter();
-//            PrintWriter pw = new PrintWriter(sw);
-//            ex.printStackTrace(pw);
-//            String stackTrace = sw.toString();
-//        }
+        addStudentAction(stu);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void delBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delBtnActionPerformed
@@ -429,6 +431,10 @@ public class MainUI extends javax.swing.JFrame {
             restoreTable.addRow(rowData.toArray());
         }
     }//GEN-LAST:event_clearBtnActionPerformed
+
+    private void NameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameFieldActionPerformed
 
 //     // Add a mouse listener to the table to allow row selection
 //        jTable1.addMouseListener(new MouseAdapter() {
@@ -740,35 +746,7 @@ public class MainUI extends javax.swing.JFrame {
         }
     }
 
-//    private void listenForResponses() {
-//        // Create a thread for listening to responses
-//        Thread thread = new Thread(new Runnable() {
-//            public void run() {
-//                try {
-//                    dataInputStream = new DataInputStream(socketChannel.socket().getInputStream());
-//                    while (true) {
-//                        try {
-//                            Thread.sleep(1000);
-//                        } catch (InterruptedException ex) {
-//                            Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                        try {
-//                            listenAction();
-////                            }
-//                        } catch (Exception e) {
-////            e.printStackTrace();
-//                            System.err.println("No Data");
-//                        }
-//                    }
-//                } catch (IOException ex) {
-//                    Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//
-//            }
-//
-//        });
-//        thread.start(); // Start the thread
-//    }
+
     private void handleResponse(Object obj) {
         if (obj instanceof serverRequest) {
             System.out.println("of serverRequest");
@@ -814,21 +792,11 @@ public class MainUI extends javax.swing.JFrame {
             this.socketChannel = SocketChannel.open();
             this.socketChannel.connect(new InetSocketAddress("localhost", 8081));
             this.socketChannel.configureBlocking(false);
-//            this.dataInputStream = new DataInputStream(socketChannel.socket().getInputStream());
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Error connecting to server", e);
         }
     }
 
-//    public void sendRequest(serverRequest req) {
-//        try (DataOutputStream dataOutputStream = new DataOutputStream(socketChannel.socket().getOutputStream())) {
-//            dataOutputStream.write(MessageSerialization.serialize(req));
-//            dataOutputStream.flush();
-//            LOGGER.info("Request sent to server");
-//        } catch (IOException e) {
-//            LOGGER.log(Level.SEVERE, "Error sending request to server", e);
-//        }
-//    }
     public void sendRequest(serverRequest req) {
         try {
             ByteBuffer buffer = ByteBuffer.allocate(1024);
@@ -838,7 +806,6 @@ public class MainUI extends javax.swing.JFrame {
                 socketChannel.write(buffer);
             }
             buffer.clear();
-//            this.socketChannel.close();
             LOGGER.info("Request sent to server");
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Error sending request to server", e);
@@ -864,7 +831,7 @@ public class MainUI extends javax.swing.JFrame {
             ByteBuffer buffer = ByteBuffer.allocate(1024);
             while (true) {
                 int bytesRead = socketChannel.read(buffer);
-                if (bytesRead <= 0) {
+                if (bytesRead <= 0) {//blocking false is complusaryhere to get 0
                     break; // End of file or connection closed
                 }
                 buffer.flip();
@@ -900,8 +867,17 @@ public class MainUI extends javax.swing.JFrame {
         for (Iterator iterator = data.iterator(); iterator.hasNext();) {
             com.studentdb.jdbcspring.entity.student next = (com.studentdb.jdbcspring.entity.student) iterator.next();
             tableModel.addRow(new Object[]{next.getStudentId(), next.getName(), next.getAge(),
-                next.getSex(), next.getClass(), next.getFname(), next.getMname(), next.getAddress()});
+                next.getSex(), next.getStdClass(),next.getFname(), next.getMname(), next.getAddress()});
         }
+    }
+
+    private void addStudentAction(com.studentdb.jdbcspring.entity.student stu) {
+        serverRequest req = new serverRequest();
+        Vector v = new Vector();
+        v.add(stu);
+        req.setInfo(v);
+        req.setKey("ADD_STUDENT");
+        sendRequest(req);
     }
 
 }
